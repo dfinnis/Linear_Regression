@@ -40,7 +40,7 @@ alpha = 0.01
 
 # Compute Cost
 for i in range(1500):
-    theta -= 1/(2*m) * np.dot((np.transpose(x * theta)) - y), ((np.dot(X, theta)) - y)
+    theta -= 1/(2*m) * np.dot((np.transpose(x * theta) - y)), ((np.dot(X, theta)) - y)
 
 print(theta)
 print(J)

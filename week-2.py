@@ -6,10 +6,10 @@ data = pd.read_csv("data.csv")
 
 data.plot.scatter('km', 'price')
 
-X = np.array(data['km'], dtype='int64')
-y = np.array(data['price'], dtype='int64')
+X = np.array(data['km'], dtype='float64')
+y = np.array(data['price'], dtype='float64')
 
-theta = np.array([0, 0], dtype='int64')
+theta = np.array([0, 0], dtype='float64')
 
 def predict(X, theta):
     return (theta[0] + (theta[1] * X))
@@ -30,10 +30,10 @@ import matplotlib.pyplot as plt
 def visualize(theta):
     fig = plt.figure()
     ax = plt.axes()
-    ax.set_xlim([4.5,22.5])
-    ax.set_ylim([-5, 25])
+    ax.set_xlim([22000,25000])
+    ax.set_ylim(3000, 9000)
     ax.scatter(X, y)
-    line_x = np.linspace(0,22.5, 20)
+    line_x = np.linspace(12000,250000, 1000)
     line_y = theta[0] + line_x * theta[1]
     ax.plot(line_x, line_y)
     plt.show()

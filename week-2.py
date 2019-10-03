@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib as plt
+import statistics as stat
 
 data = pd.read_csv("data.csv")
 
@@ -8,10 +9,22 @@ data.plot.scatter('km', 'price')
 
 X = np.array(data['km'], dtype='float64')
 y = np.array(data['price'], dtype='float64')
+print(X)
+print(y)
+
+def feature_normalize(X):
+    mu = stat.mean(X)
+    sigma = stat.stdev(X)
+    normalized_features = (X-mu)/sigma if sigma != 0 else X
+    return normalized_features
+
+X = feature_normalize(X)
 
 theta = np.array([0, 0], dtype='float64')
 
 def predict(X, theta):
+    # print(X)
+    # print(theta)
     return (theta[0] + (theta[1] * X))
 
 def fit(X, y, theta, alpha, num_iters):
@@ -20,6 +33,10 @@ def fit(X, y, theta, alpha, num_iters):
         hypothesis = predict(X, theta)
         theta[0] -= alpha / m * np.sum(hypothesis - y)
         theta[1] -= alpha / m * np.dot((hypothesis - y), np.transpose(X))
+        # loss = predict(X, theta) - y
+        # tmp_theta0 = theta[0] - (alpha / m) * sum(loss)
+        # tmp_theta1 = theta[1] - (alpha / m) * sum(loss * X.T)
+        # theta = [tmp_theta0, tmp_theta1]
     return theta
 
 theta = fit(X, y, theta, 0.01, 1500)
@@ -45,10 +62,6 @@ def cost(X, y, theta):
     hypothesis = predict(X, theta)
     J = 1 / (2 * m) * np.sum(np.square(hypothesis - y))
     return (J)
-
-cost(X, y, [0, 0])
-
-cost(X, y, [-1, 2])
 
 def fit_with_cost(X, y, theta, alpha, num_iters):
     m = len(X)

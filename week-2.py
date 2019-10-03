@@ -3,14 +3,15 @@ import pandas as pd
 import matplotlib as plt
 import statistics as stat
 
+# with warnings.catch_warnings():
+#     warnings.filterwarnings('ignore', r'All-NaN (slice|axis) encountered')
+
 data = pd.read_csv("data.csv")
 
-data.plot.scatter('km', 'price')
+# data.plot.scatter('km', 'price')
 
 X = np.array(data['km'], dtype='float64')
 y = np.array(data['price'], dtype='float64')
-print(X)
-print(y)
 
 def feature_normalize(X):
     mu = stat.mean(X)
@@ -18,14 +19,12 @@ def feature_normalize(X):
     normalized_features = (X-mu)/sigma if sigma != 0 else X
     return normalized_features
 
-X = feature_normalize(X)
+X_norm = feature_normalize(X)
 
 theta = np.array([0, 0], dtype='float64')
 
 def predict(X, theta):
-    # print(X)
-    # print(theta)
-    return (theta[0] + (theta[1] * X))
+    return theta[0] + (theta[1] * X)
 
 def fit(X, y, theta, alpha, num_iters):
     m = len(X)
@@ -39,7 +38,7 @@ def fit(X, y, theta, alpha, num_iters):
         # theta = [tmp_theta0, tmp_theta1]
     return theta
 
-theta = fit(X, y, theta, 0.01, 1500)
+theta = fit(X_norm, y, theta, 0.01, 1500)
 print(theta)
 
 import matplotlib.pyplot as plt
@@ -47,13 +46,40 @@ import matplotlib.pyplot as plt
 def visualize(theta):
     fig = plt.figure()
     ax = plt.axes()
-    ax.set_xlim([22000,25000])
-    ax.set_ylim(3000, 9000)
-    ax.scatter(X, y)
-    line_x = np.linspace(12000,250000, 1000)
-    line_y = theta[0] + line_x * theta[1]
-    ax.plot(line_x, line_y)
+    # ax = fig.add_subplot(111)
+    
+    # ax.scatter(X, y, color='blue')
+
+    x_max = np.max(X) + 10000
+    x_min = np.min(X) - 10000
+    ax.set_xlim([x_max, x_min])
+    ax.set_ylim(np.max(y) + 1000, np.min(y) - 1000)
+    ax.scatter(X, y, color='blue')
+    
+    xplot = np.linspace(x_max, x_min, 100)
+    yplot = theta[0] + xplot * theta[1]
+    ax.plot(xplot, yplot, color='red')
+
+    plt.title("Price over Distance Driven")
+    plt.xlabel("kilometers")
+    plt.ylabel("price")
     plt.show()
+
+    #####
+
+    # line_x = np.linspace(12000, 250000, 1000)
+    # line_y = theta[0] + line_x * theta[1]
+    # plt.plot(line_x, line_y, color='red')
+
+    # fig = plt.figure()
+    # ax = plt.axes()
+    # ax.set_xlim([22000,25000])
+    # ax.set_ylim(3000, 9000)
+    # ax.scatter(X, y)
+    # line_x = np.linspace(12000,250000, 1000)
+    # line_y = theta[0] + line_x * theta[1]
+    # ax.plot(line_x, line_y)
+    # plt.show()
 
 visualize(theta)
 
@@ -74,8 +100,9 @@ def fit_with_cost(X, y, theta, alpha, num_iters):
     return theta, J_history
 
 theta = np.zeros(2)
+# X_norm = feature_normalize(X)
 
-theta, J_history = fit_with_cost(X, y, theta, 0.01, 1500)
+theta, J_history = fit_with_cost(X_norm, y, theta, 0.01, 1500)
 
 fit = plt.figure()
 ax = plt.axes()

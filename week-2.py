@@ -52,13 +52,13 @@ def visualize(theta):
 
     x_max = np.max(X) + 10000
     x_min = np.min(X) - 10000
-    ax.set_xlim([x_max, x_min])
-    ax.set_ylim(np.max(y) + 1000, np.min(y) - 1000)
+    ax.set_xlim([x_min, x_max])
+    ax.set_ylim(np.min(y) - 1000, np.max(y) + 1000)
     ax.scatter(X, y, color='blue')
     
-    xplot = np.linspace(x_max, x_min, 100)
-    yplot = theta[0] + xplot * theta[1]
-    ax.plot(xplot, yplot, color='red')
+    # xplot = np.linspace(x_max, x_min, 100)
+    reg_line = theta[0] + X_norm * theta[1]
+    ax.plot(X, reg_line, 'r-', X, y, 'o')
 
     plt.title("Price over Distance Driven")
     plt.xlabel("kilometers")

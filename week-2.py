@@ -48,7 +48,7 @@ def visualize(theta):
     ax = plt.axes()
     # ax = fig.add_subplot(111)
     
-    # ax.scatter(X, y, color='blue')
+    plt.scatter(X, y, color='blue')
 
     x_max = np.max(X) + 10000
     x_min = np.min(X) - 10000

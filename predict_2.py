@@ -14,7 +14,6 @@ def find_theta():
         index = line[0].index('=')
         theta[0] = line[0][index+1:]
         theta[1] = line[1][index+1:]
-        print(theta) #############
     except Exception:
         print("Using default theta values (0,0)")
     return theta

@@ -49,7 +49,6 @@ def visualize_regression(theta, X_norm, X, y):
     plot.ylabel("price")
     plot.show()
 
-<<<<<<< HEAD
 def visualize_cost(J_history):
     plot.figure()
     ax = plot.axes()
@@ -58,8 +57,6 @@ def visualize_cost(J_history):
     plot.ylabel("Mean Squared Error")
     ax.plot(J_history)
 
-=======
->>>>>>> 20af7a0b7e42e288f7d49895b6783e7232c23028
 def save_theta(theta):
     if theta[0] == 0.0 and theta[1] == 0.0:
         print("Saving theta aborted as theta is zero")
@@ -81,18 +78,16 @@ def main():
     theta = np.array([0, 0], dtype='float64')
     # theta = fit(X_norm, y, theta, 0.01, 1500)
     
-    theta = np.zeros(2)
+    # theta = np.zeros(2)
     theta, J_history = fit(X_norm, y, theta, 0.01, 1500)
 
     visualize_cost(J_history)
     visualize_regression(theta, X_norm, X, y)
-    plot.figure()
-    ax = plot.axes()
-    ax.plot(J_history)
+    # plot.figure()
+    # ax = plot.axes()
+    # ax.plot(J_history)
 
     save_theta(theta)
-
-    visualize(theta, X_norm, X, y)
     
 
 if __name__ == '__main__':

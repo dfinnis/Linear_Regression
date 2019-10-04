@@ -29,7 +29,7 @@ def fit(X, y, theta, alpha, num_iters):
         J_history.append(cost(X, y, theta))   
     return theta, J_history
 
-def visualize(theta, X_norm, X, y):
+def visualize_regression(theta, X_norm, X, y):
     fig = plot.figure()
     ax = plot.axes()
     
@@ -49,6 +49,14 @@ def visualize(theta, X_norm, X, y):
     plot.ylabel("price")
     plot.show()
 
+def visualize_cost(J_history):
+    plot.figure()
+    ax = plot.axes()
+    plot.title("Error rate")
+    plot.xlabel("Number of Iterations")
+    plot.ylabel("Mean Squared Error")
+    ax.plot(J_history)
+
 def main():
     data = pd.read_csv("data.csv")
     X = np.array(data['km'], dtype='float64')
@@ -61,10 +69,8 @@ def main():
     theta = np.zeros(2)
     theta, J_history = fit(X_norm, y, theta, 0.01, 1500)
 
-    plot.figure()
-    ax = plot.axes()
-    ax.plot(J_history)
-    visualize(theta, X_norm, X, y)
+    visualize_cost(J_history)
+    visualize_regression(theta, X_norm, X, y)
     
 
 if __name__ == '__main__':

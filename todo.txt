@@ -1,10 +1,12 @@
 #### to_do ####
+fix output
 split into 3 files
  - fix imports
 clean comments
 
-#### Bonus ####
+#### Bonus to do ####
 show theta at each iteration (move on graph)
+take alpha and num_iterations as arguments
 
 #### Bonus done ####
 Plotting the data into a graph

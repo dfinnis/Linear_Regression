@@ -1,0 +1,12 @@
+#### to_do ####
+split into 3 files
+ - fix imports
+clean comments
+
+#### Bonus ####
+show theta at each iteration (move on graph)
+
+#### Bonus done ####
+Plotting the data into a graph
+Plotting the line resulting from your linear regression into the same graph
+calculate the precision of your algorithm (cost)

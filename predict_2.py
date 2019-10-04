@@ -2,8 +2,7 @@ import sys
 import numpy as np
 from train_2 import feature_normalize
 
-def predict(km):
-    theta = np.array([0, 0], dtype='float64')
+def predict(km, theta):
     km = feature_normalize(km)
     price = theta[0] + theta[1] * km
     return price

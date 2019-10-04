@@ -67,7 +67,6 @@ def save_theta(theta):
         except Exception:
             print("Saving theta failed")
 
-
 def main():
     data = pd.read_csv("data.csv")
     X = np.array(data['km'], dtype='float64')
@@ -75,16 +74,10 @@ def main():
     X_norm = feature_normalize(X)
 
     theta = np.array([0, 0], dtype='float64')
-    # theta = fit(X_norm, y, theta, 0.01, 1500)
-    
-    # theta = np.zeros(2)
     theta, J_history = fit(X_norm, y, theta, 0.01, 1500)
 
     visualize_cost(J_history)
     visualize_regression(theta, X_norm, X, y)
-    # plot.figure()
-    # ax = plot.axes()
-    # ax.plot(J_history)
 
     save_theta(theta)
     

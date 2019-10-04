@@ -3,7 +3,7 @@ import numpy as np
 from train import feature_normalize
 
 def predict(km, theta):
-    km = feature_normalize(km)
+    # km, mu, sigma = feature_normalize(km)
     price = theta[0] + theta[1] * km
     return price
 

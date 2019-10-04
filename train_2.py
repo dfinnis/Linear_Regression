@@ -2,11 +2,10 @@ import numpy as np
 import pandas as pd
 import matplotlib as plt
 import matplotlib.pyplot as plot
-import statistics as stat
 
 def feature_normalize(X):
-    mu = stat.mean(X)
-    sigma = stat.stdev(X)
+    mu = np.mean(X)
+    sigma = np.std(X)
     normalized_features = (X-mu)/sigma if sigma != 0 else X
     return normalized_features
 

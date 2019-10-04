@@ -56,6 +56,7 @@ def visualize_cost(J_history):
     plot.xlabel("Number of Iterations")
     plot.ylabel("Mean Squared Error")
     ax.plot(J_history)
+
 def save_theta(theta):
     if theta[0] == 0.0 and theta[1] == 0.0:
         print("Saving theta aborted as theta is zero")

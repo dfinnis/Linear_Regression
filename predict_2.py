@@ -2,23 +2,37 @@ import sys
 import numpy as np
 # from train_2 import train_2
 
-def predict(km):
-    theta = np.array([0, 0], dtype='float64')
+def predict(km, theta):
     price = theta[0] + theta[1] * float(km)
     return price
+
+def find_theta():
+    theta = np.array([0, 0], dtype='float64') 
+    try:
+        t = open('Theta', 'r')
+        line = t.readlines()
+        index = line[0].index('=')
+        theta[0] = line[0][index+1:]
+        theta[1] = line[1][index+1:]
+        print(theta) #############
+    except Exception:
+        print("Using default theta values (0,0)")
+    return theta
 
 def main():
     km = input('Please enter mileage: ')
     if (km.isnumeric()) == False:
         print('The milage specified is invalid')
-        sys.exit()
+        exit()
     km = int(km)
-    print(km) ########
-    price = predict(km)
+    theta = find_theta()
+    price = predict(km, theta)
     print("The price of a car at {}km is estimated at {}" .format(km, price))
 
 if __name__ == '__main__':
     main()
+
+
 
 
 

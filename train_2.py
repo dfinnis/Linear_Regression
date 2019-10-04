@@ -49,6 +49,18 @@ def visualize(theta, X_norm, X, y):
     plot.ylabel("price")
     plot.show()
 
+def save_theta(theta):
+    if theta[0] == 0.0 and theta[1] == 0.0:
+        print("Saving theta aborted as theta is zero")
+    else:
+        try:
+            theta_file = open('Theta', 'w')
+            theta_file.write('theta[0] = {}\ntheta[1] = {}' .format(theta[0], theta[1]))
+            theta_file.close
+        except Exception:
+            print("Saving theta failed")
+
+
 def main():
     data = pd.read_csv("data.csv")
     X = np.array(data['km'], dtype='float64')
@@ -64,6 +76,9 @@ def main():
     plot.figure()
     ax = plot.axes()
     ax.plot(J_history)
+
+    save_theta(theta)
+
     visualize(theta, X_norm, X, y)
     
 

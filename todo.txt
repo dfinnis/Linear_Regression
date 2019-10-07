@@ -1,11 +1,6 @@
-#### to_do ####
-fix 0 miles
-
-#### Bonus to do ####
-take alpha and num_iterations as arguments
-
-#### Bonus done ####
+#### Bonus ####
 1. Plotting the data into a graph
 2. Plotting the line resulting from your linear regression into the same graph
 3. calculate the precision of your algorithm (cost)
-4. show theta at each iteration (move on graph)
+4. show theta at each iteration, animate (-v)
+5. take alpha and num_iterations as arguments

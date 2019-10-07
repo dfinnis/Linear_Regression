@@ -10,10 +10,11 @@ def feature_normalize(X):
     normalized_features = (X-mu)/sigma if sigma != 0 else X
     return normalized_features, mu, sigma
 
-# def denormalize(theta, X_mu, X_sigma, Y_mu, Y_sigma):
-#     theta[0] = theta[0] * Y_sigma + Y_mu
-#     theta[1] = theta[1] * X_sigma + X_mu
-#     return theta
+def denormalize(theta, mu, sigma):
+    # theta[0] = theta[0] * Y_sigma + Y_mu
+    theta[0] = theta[0] * Y_sigma + Y_mu    
+    theta[1] = theta[1] * X_sigma + X_mu
+    return theta
 
 def predict(X, theta):
     return theta[0] + (theta[1] * X)
@@ -85,21 +86,21 @@ def main():
     data = pd.read_csv("data.csv")
     X = np.array(data['km'], dtype='float64')
     y = np.array(data['price'], dtype='float64')
-    X_norm, X_mu, X_sigma = feature_normalize(X)
-    Y_norm, Y_mu, Y_sigma = feature_normalize(y)
-    # print("X_mu: {}" .format(X_mu))
-    # print("X_sigma: {}" .format(X_sigma))
+    X_norm, mu, sigma = feature_normalize(X)
+    # Y_norm, Y_mu, Y_sigma = feature_normalize(y)
+    print("mu: {}" .format(mu))
+    print("sigma: {}" .format(sigma))
     # print("Y_mu: {}" .format(Y_mu))
     # print("Y_sigma: {}" .format(Y_sigma))
 
     theta = np.array([0, 0], dtype='float64')
     theta, J_history, weight_list = fit(X_norm, y, theta, 0.01, 1500)
-
-    # tools.visualize_cost(J_history)
+    print("Theta[0]: {}, Theta[1]: {}, " .format(theta[0], theta[1]))   
+    tools.visualize_cost(J_history)
     # tools.visualize_regression(theta, X_norm, X, y)
     tools.visualize_animate(weight_list, X_norm, X, y)
 
-    # theta = denormalize(theta, X_mu, X_sigma, Y_mu, Y_sigma)
+    # theta = denormalize(theta, mu, sigma)
     save_theta(theta)
     
 

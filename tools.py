@@ -2,7 +2,7 @@ import numpy as np
 import argparse
 
 def parse_args():
-    my_parser = argparse.ArgumentParser(description='List the content of a folder')
+    my_parser = argparse.ArgumentParser(description='Train model which estimates price for a car of given milage')
     my_parser.add_argument('-a',
                         '--alpha',
                         type=float,

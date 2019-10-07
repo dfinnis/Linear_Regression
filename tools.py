@@ -32,8 +32,8 @@ def save_theta(theta, mu, sigma):
         print("Saving theta aborted as theta is zero")
     else:
         try:
-            theta_file = open('Theta', 'w')            
-            theta_file.write('theta[0] = {}\ntheta[1] = {}\nmu = {}\nsigma = {}' .format(theta[0], theta[1], mu, sigma))
+            theta_file = open('Theta.csv', 'w')            
+            theta_file.write('theta[0],{}\ntheta[1],{}\nmu,{}\nsigma,{}\n' .format(theta[0], theta[1], mu, sigma))
             theta_file.close
         except Exception:
             print("Saving theta failed")
@@ -43,14 +43,14 @@ def find_theta():
     mu = 0
     sigma = 0
     try:
-        t = open('Theta', 'r')
+        t = open('Theta.csv', 'r')
         line = t.readlines()
-        index = line[0].index('=')
+        index = line[0].index(',')
         theta[0] = line[0][index+1:]
         theta[1] = line[1][index+1:]
-        index = line[2].index('=')
+        index = line[2].index(',')
         mu = (line[2][index+1:])
-        index = line[3].index('=')
+        index = line[3].index(',')
         sigma = (line[3][index+1:])
         mu = float(mu)
         sigma = float(sigma)

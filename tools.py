@@ -60,5 +60,13 @@ def visualize_animate(weight_list, X_norm, X, y):
     plot.title("Price over Distance Driven")
     plot.xlabel("kilometers")
     plot.ylabel("price")
+    
     anim = animation.FuncAnimation(fig, animate, init_func=init, frames=1500, interval=5, blit=True)
+
+    # def press(event):
+    #     if event.key == 'q':
+    #         anim.event_source.stop()
+
+    # cid = fig.canvas.mpl_connect('key_press_event', press)
     plot.show()
+    plot.ioff()

@@ -1,4 +1,3 @@
-from train import feature_normalize
 import tools as tools
 
 def predict(km, theta, mu, sigma):

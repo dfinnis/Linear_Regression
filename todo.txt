@@ -1,14 +1,11 @@
 #### to_do ####
-fix output
-split into 3 files
- - fix imports
-clean comments
+fix 0 miles
 
 #### Bonus to do ####
-show theta at each iteration (move on graph)
 take alpha and num_iterations as arguments
 
 #### Bonus done ####
-Plotting the data into a graph
-Plotting the line resulting from your linear regression into the same graph
-calculate the precision of your algorithm (cost)
+1. Plotting the data into a graph
+2. Plotting the line resulting from your linear regression into the same graph
+3. calculate the precision of your algorithm (cost)
+4. show theta at each iteration (move on graph)

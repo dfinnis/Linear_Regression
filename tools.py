@@ -56,6 +56,9 @@ def visualize_animate(weight_list, X_norm, X, y):
         line1.set_data(X, reg_line)
         line2.set_data(X, y)
         return [line1, line2]
-   
+
+    plot.title("Price over Distance Driven")
+    plot.xlabel("kilometers")
+    plot.ylabel("price")
     anim = animation.FuncAnimation(fig, animate, init_func=init, frames=1500, interval=5, blit=True)
     plot.show()

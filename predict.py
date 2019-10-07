@@ -2,16 +2,10 @@ import sys
 import numpy as np
 from train import feature_normalize
 
-# def denormalize(price, mu, sigma):
-#     price_2 = price * float(sigma) + float(mu)
-#     print(price_2)
-#     # price = (price + mu) * sigma
-#     return price_2
-
 def predict(km, theta, mu, sigma):
-    # km, mu, sigma = feature_normalize(km)
+    if not mu == 0 and not sigma == 0:
+        km = (km - mu) / sigma
     price = theta[0] + theta[1] * km
-    # price = denormalize(price, mu, sigma)
     return price
 
 def find_theta():
@@ -25,13 +19,11 @@ def find_theta():
         theta[0] = line[0][index+1:]
         theta[1] = line[1][index+1:]
         index = line[2].index('=')
-        mu = line[2][index+1:]
+        mu = (line[2][index+1:])
         index = line[3].index('=')
-        sigma = line[3][index+1:]
-        # print(theta[0])
-        # print(theta[1])
-        # print(mu)
-        # print(sigma)
+        sigma = (line[3][index+1:])
+        mu = float(mu)
+        sigma = float(sigma)
     except Exception:
         print("Using default theta values (0,0)")
     return theta, mu, sigma
@@ -48,15 +40,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-# def fit(X, y, theta, alpha, num_iters):
-    # m = len(X)
-    # for i in range(num_iters):
-        # hypothesis = predict(X, theta)
-        # theta[0] -= alpha / m * np.sum(hypothesis - y)
-        # theta[1] -= alpha / m * np.dot((hypothesis - y), np.transpose(X))
-    # return theta

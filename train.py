@@ -26,8 +26,10 @@ def fit(X, y, theta, alpha, num_iters):
     weight_list = []
     for i in range(num_iters):
         hypothesis = predict(X, theta)
-        theta[0] -= alpha / m * np.sum(hypothesis - y)
-        theta[1] -= alpha / m * np.dot((hypothesis - y), np.transpose(X)) 
+        tmp0 = theta[0] - alpha / m * np.sum(hypothesis - y)
+        tmp1 = theta[1] - alpha / m * np.dot((hypothesis - y), np.transpose(X)) 
+        theta[0] = tmp0
+        theta[1] = tmp1
         J_history.append(cost(X, y, theta))   
         weight_list.append([theta[0], theta[1]]) 
     return theta, J_history, weight_list 

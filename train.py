@@ -71,13 +71,13 @@ def fit(X, y, theta, alpha, num_iters):
 # def visualize_animate():
     
 
-def save_theta(theta):
+def save_theta(theta, mu, sigma):
     if theta[0] == 0.0 and theta[1] == 0.0:
         print("Saving theta aborted as theta is zero")
     else:
         try:
-            theta_file = open('Theta', 'w')
-            theta_file.write('theta[0] = {}\ntheta[1] = {}' .format(theta[0], theta[1]))
+            theta_file = open('Theta', 'w')            
+            theta_file.write('theta[0] = {}\ntheta[1] = {}\nmu = {}\nsigma = {}' .format(theta[0], theta[1], mu, sigma))
             theta_file.close
         except Exception:
             print("Saving theta failed")
@@ -101,7 +101,7 @@ def main():
     tools.visualize_animate(weight_list, X_norm, X, y)
 
     # theta = denormalize(theta, mu, sigma)
-    save_theta(theta)
+    save_theta(theta, mu, sigma)
     
 
 if __name__ == '__main__':

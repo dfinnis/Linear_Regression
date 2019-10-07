@@ -2,22 +2,39 @@ import sys
 import numpy as np
 from train import feature_normalize
 
-def predict(km, theta):
+# def denormalize(price, mu, sigma):
+#     price_2 = price * float(sigma) + float(mu)
+#     print(price_2)
+#     # price = (price + mu) * sigma
+#     return price_2
+
+def predict(km, theta, mu, sigma):
     # km, mu, sigma = feature_normalize(km)
     price = theta[0] + theta[1] * km
+    # price = denormalize(price, mu, sigma)
     return price
 
 def find_theta():
-    theta = np.array([0, 0], dtype='float64') 
+    theta = np.array([0, 0], dtype='float64')
+    mu = 0
+    sigma = 0
     try:
         t = open('Theta', 'r')
         line = t.readlines()
         index = line[0].index('=')
         theta[0] = line[0][index+1:]
         theta[1] = line[1][index+1:]
+        index = line[2].index('=')
+        mu = line[2][index+1:]
+        index = line[3].index('=')
+        sigma = line[3][index+1:]
+        # print(theta[0])
+        # print(theta[1])
+        # print(mu)
+        # print(sigma)
     except Exception:
         print("Using default theta values (0,0)")
-    return theta
+    return theta, mu, sigma
 
 def main():
     km = input('Please enter mileage: ')
@@ -25,8 +42,8 @@ def main():
         print('The milage specified is invalid')
         exit()
     km = int(km)
-    theta = find_theta()
-    price = predict(km, theta)
+    theta, mu, sigma = find_theta()
+    price = predict(km, theta, mu, sigma)
     print("The price of a car at {}km is estimated at {}" .format(km, price))
 
 if __name__ == '__main__':

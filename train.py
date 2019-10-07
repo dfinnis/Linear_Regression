@@ -45,10 +45,10 @@ def main():
     theta = np.array([0, 0], dtype='float64')
     theta, J_history, weight_list = fit(X_norm, y, theta, alpha, num_iterations)
     
-    v.visualize_cost(J_history)
     if animate == True:
         v.visualize_animate(weight_list, X_norm, X, y, num_iterations)
     else:
+        v.visualize_cost(J_history)
         v.visualize_regression(theta, X_norm, X, y)
 
     tools.save_theta(theta, mu, sigma)

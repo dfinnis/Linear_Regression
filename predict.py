@@ -15,7 +15,10 @@ def main():
     km = int(km)
     theta, mu, sigma = tools.find_theta()
     price = round(predict(km, theta, mu, sigma), 2)
-    print("The price of a car at {}km is estimated at {}" .format(km, price))
+    if price < 0:
+        print("The price of a car at {}km is estimated at {}. Junk it!" .format(km, price))
+    else:
+        print("The price of a car at {}km is estimated at {}" .format(km, price))
 
 if __name__ == '__main__':
     main()

@@ -40,7 +40,7 @@ def main():
     y = np.array(data['price'], dtype='float64')
     X_norm, mu, sigma = feature_normalize(X)
 
-    theta, mu_tmp, sigma_tmp = tools.find_theta()
+    theta = np.array([0, 0], dtype='float64')
     theta, J_history, weight_list = fit(X_norm, y, theta, alpha, num_iterations)
     
     v.visualize_cost(J_history)

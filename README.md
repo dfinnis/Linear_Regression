@@ -25,6 +25,8 @@ Then run run.sh to train a model and predict the price of a car.
 
 train.py uses gradient descent to train a model using data.csv, 25 cars price and milage.
 
+Below we see the linear function fit to the data over training iterations.
+
 ```python3 train.py```
 
 ![Example](https://github.com/anyashuka/Linear_Regression/blob/master/img/train.gif)

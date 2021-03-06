@@ -18,7 +18,7 @@ Then run run.sh to train a model and predict the price of a car.
 
 ```./run.sh```
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/run.png" width="400">
+<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/run.png" width="500">
 
 ## Train
 
@@ -34,7 +34,7 @@ The loss function is mean squared error.
 
 The model is saved to Theta.csv. Let's take a look at it's contents.
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/theta.png" width="400">
+<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/theta.png" width="450">
 
 ## Predict
 
@@ -42,7 +42,7 @@ predict.py loads the model from Theta.csv, prompts user for milage, then prints 
 
 ```python3 predict.py```
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/predict.png" width="400">
+<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/predict.png" width="500">
 
 ## Flags
 

@@ -1,6 +1,6 @@
 # Linear_Regression
 
-Predict the price of a car using a linear function trained with gradient descent.
+Predict the price of a car from its milage, using gradient descent coded from scratch.
 
 #### Final Score 125/100
 
@@ -20,26 +20,48 @@ Then run run.sh to train a model and predict the price of a car.
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/run.png" width="400">
 
-### Train
+## Train
+
+train.py uses gradient descent to train a model using data.csv, 25 cars price and milage.
 
 ```python3 train.py```
 
 ![Example](https://github.com/anyashuka/Linear_Regression/blob/master/img/train.gif)
 
-Mean squared error.
+The loss function is mean squared error.
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/error.png" width="610">
 
-After training, the model is saved to Theta.csv. Let's take a look at it's contents.
+The model is saved to Theta.csv. Let's take a look at it's contents.
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/theta.png" width="400">
 
-### Predict
+## Predict
+
+predict.py loads the model from Theta.csv, prompts user for milage, then prints the predicted price for a car of given milage.
 
 ```python3 predict.py```
 
+<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/predict.png" width="400">
+
 ## Flags
 
-### alpha
+### -a, --alpha
 
-### num_iterations
+Set learning rate (alpha). Default 0.01.
+
+### -n, --num_iterations
+
+Set number of training iterations. Default 1500.
+
+## Dependencies
+
+Thankfully, running the following command should take care of dependencies for you.
+
+```pip install -r requirements.txt```
+
+Python 3.9.1
+
+* matplotlib
+* pandas
+* numpy

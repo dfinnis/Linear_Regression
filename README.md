@@ -20,6 +20,7 @@ Then run run.sh to train a model and predict the price of a car.
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/run.png" width="500">
 
+
 ## Train
 
 train.py uses gradient descent to train a model using data.csv, 25 cars price and milage.
@@ -36,6 +37,17 @@ The model is saved to Theta.csv. Let's take a look at it's contents.
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/theta.png" width="450">
 
+### Flags
+
+#### -a, --alpha
+
+Set learning rate (alpha). Default 0.01.
+
+#### -n, --num_iterations
+
+Set number of training iterations. Default 1500.
+
+
 ## Predict
 
 predict.py loads the model from Theta.csv, prompts user for milage, then prints the predicted price for a car of given milage.
@@ -44,15 +56,6 @@ predict.py loads the model from Theta.csv, prompts user for milage, then prints 
 
 <img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/predict.png" width="500">
 
-## Flags
-
-### -a, --alpha
-
-Set learning rate (alpha). Default 0.01.
-
-### -n, --num_iterations
-
-Set number of training iterations. Default 1500.
 
 ## Dependencies
 

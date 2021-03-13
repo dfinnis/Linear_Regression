@@ -70,3 +70,8 @@ Python 3.9.1
 * matplotlib
 * pandas
 * numpy
+
+
+## Team
+
+I wrote this project in a team with the wonderful [@Anya Schukin](https://github.com/anyashuka)

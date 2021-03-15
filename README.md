@@ -8,7 +8,7 @@ Predict the price of a car from its milage, using gradient descent coded from sc
 
 First clone this repo.
 
-```git clone https://github.com/anyashuka/Linear_Regression.git; cd Linear_Regression```
+```git clone https://github.com/dfinnis/Linear_Regression.git; cd Linear_Regression```
 
 Download dependencies.
 
@@ -18,7 +18,7 @@ Then run run.sh to train a model and predict the price of a car.
 
 ```./run.sh```
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/run.png" width="500">
+<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/run.png" width="500">
 
 
 ## Train
@@ -29,15 +29,15 @@ Below we see the linear function fit to the data over training iterations.
 
 ```python3 train.py```
 
-![Example](https://github.com/anyashuka/Linear_Regression/blob/master/img/train.gif)
+![Example](https://github.com/dfinnis/Linear_Regression/blob/master/img/train.gif)
 
 The loss function is mean squared error.
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/error.png" width="610">
+<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/error.png" width="610">
 
 The model is saved to Theta.csv. Let's take a look at it's contents.
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/theta.png" width="450">
+<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/theta.png" width="450">
 
 ### Flags
 
@@ -56,7 +56,7 @@ predict.py loads the model from Theta.csv, prompts user for milage, then prints 
 
 ```python3 predict.py```
 
-<img src="https://github.com/anyashuka/Linear_Regression/blob/master/img/predict.png" width="500">
+<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/predict.png" width="500">
 
 
 ## Dependencies

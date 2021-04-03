@@ -18,7 +18,7 @@ Download dependencies. <br>
 Then run run.sh to train a model and predict the price of a car. <br>
 ```./run.sh```
 
-<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/run.png" width="500">
+<img src="https://github.com/dfinnis/Linear_Regression/blob/master/img/run.png" width="400">
 
 
 ## Train

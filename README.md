@@ -2,7 +2,10 @@
 
 Predict the price of a car from its milage, using gradient descent coded from scratch.
 
-#### Final Score 125/100
+See the [subject](https://github.com/dfinnis/Linear_Regression/blob/master/subject.pdf) for more details.
+
+*Final Score 125/100*
+
 
 ## Getting Started
 
